@@ -1,0 +1,27 @@
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+    <persistence-unit name="ServiceUserDBConfiguration" transaction-type="RESOURCE_LOCAL">
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/ServiceUserDB" /> <!-- BD Name -->
+            <property name="javax.persistence.jdbc.user" value="service_user_dba" /> <!-- DB User -->
+            <property name="javax.persistence.jdbc.password" value="devEnvironmentPass" /> <!-- DB Password -->
+
+            <!-- https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/dialect/package-summary.html -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL82Dialect"/> <!-- DB Dialect -->
+            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create / create-drop / update -->
+
+            <property name="hibernate.show_sql" value="false" /> <!-- Show SQL in console -->
+            <property name="hibernate.format_sql" value="true" /> <!-- Show SQL formatted -->
+            
+            <property name="spring.jpa.properties.hibernate.enable_lazy_load_no_trans" value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

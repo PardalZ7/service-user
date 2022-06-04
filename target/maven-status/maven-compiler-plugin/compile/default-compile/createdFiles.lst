@@ -1,0 +1,14 @@
+br\com\pardalZ7\service_user\domain\entities\UserApplicationEntity$UserApplicationEntityBuilder.class
+br\com\pardalZ7\service_user\domain\DTO\UserEntity.class
+br\com\pardalZ7\service_user\domain\DTO\UserApplicationEntity$UserApplicationEntityBuilder.class
+br\com\pardalZ7\service_user\domain\entities\UserEntity.class
+br\com\pardalZ7\service_user\domain\DTO\UserApplicationEntity.class
+br\com\pardalZ7\service_user\domain\entities\UserEntity$UserEntityBuilder.class
+br\com\pardalZ7\service_user\domain\base\BaseEntity.class
+br\com\pardalZ7\service_user\domain\entities\ApplicationEntity$ApplicationEntityBuilder.class
+br\com\pardalZ7\service_user\domain\entities\ApplicationEntity.class
+br\com\pardalZ7\service_user\Application.class
+br\com\pardalZ7\service_user\domain\DTO\ApplicationEntity$ApplicationEntityBuilder.class
+br\com\pardalZ7\service_user\domain\entities\UserApplicationEntity.class
+br\com\pardalZ7\service_user\domain\DTO\UserEntity$UserEntityBuilder.class
+br\com\pardalZ7\service_user\domain\DTO\ApplicationEntity.class
