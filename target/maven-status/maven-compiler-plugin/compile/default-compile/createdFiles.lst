@@ -1,5 +1,7 @@
+br\com\pardalZ7\service_user\config\ModelMapperConfig.class
 br\com\pardalZ7\service_user\domain\entities\UserApplicationEntity$UserApplicationEntityBuilder.class
 br\com\pardalZ7\service_user\domain\DTO\UserEntity.class
+br\com\pardalZ7\service_user\config\AppConfig.class
 br\com\pardalZ7\service_user\domain\DTO\UserApplicationEntity$UserApplicationEntityBuilder.class
 br\com\pardalZ7\service_user\domain\entities\UserEntity.class
 br\com\pardalZ7\service_user\domain\DTO\UserApplicationEntity.class

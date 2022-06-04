@@ -3,6 +3,8 @@ D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\ser
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\DTO\UserApplicationEntity.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\base\BaseEntity.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\DTO\UserEntity.java
+D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\config\AppConfig.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\entities\UserEntity.java
+D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\config\ModelMapperConfig.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\entities\UserApplicationEntity.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\DTO\ApplicationEntity.java

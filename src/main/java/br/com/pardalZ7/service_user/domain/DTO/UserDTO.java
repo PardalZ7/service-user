@@ -10,12 +10,12 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class UserEntity extends BaseEntity {
+public class UserDTO extends BaseEntity {
 
     protected Long id;
     private String name;
     private String email;
     private String pass;
-    private List<UserApplicationEntity> userApplications;
+    private List<UserApplicationDTO> userApplications;
 
 }
