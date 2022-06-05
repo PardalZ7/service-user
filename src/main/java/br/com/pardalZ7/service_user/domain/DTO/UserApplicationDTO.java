@@ -14,6 +14,8 @@ import java.time.LocalDateTime;
 public class UserApplicationDTO extends BaseEntity {
 
     protected Long id;
+    protected Boolean enable;
+
     private UserDTO user;
     private ApplicationDTO application;
     protected LocalDateTime lastLogin;

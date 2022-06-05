@@ -14,6 +14,8 @@ import java.util.List;
 public class ApplicationDTO extends BaseEntity {
 
     protected Long id;
+    protected Boolean enable;
+
     private String name;
     private List<UserApplicationDTO> userApplications;
 

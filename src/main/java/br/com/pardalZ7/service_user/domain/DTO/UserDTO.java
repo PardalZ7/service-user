@@ -13,6 +13,8 @@ import java.util.List;
 public class UserDTO extends BaseEntity {
 
     protected Long id;
+    protected Boolean enable;
+
     private String name;
     private String email;
     private String pass;

@@ -9,14 +9,15 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EqualsAndHashCode
+@Getter @Setter
 public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Column(name = "deleted", columnDefinition = "boolean default false")
-    protected Boolean deleted = false;
+    @Column(name = "enable", columnDefinition = "boolean default true")
+    protected Boolean enable = true;
 
     @Column(name = "createdAt", updatable = false)
     @CreationTimestamp
