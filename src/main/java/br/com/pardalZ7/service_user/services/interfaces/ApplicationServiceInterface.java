@@ -8,9 +8,10 @@ import java.util.List;
 public interface ApplicationServiceInterface {
 
     ApplicationDTO findById(Long id);
-    List<ApplicationDTO> findAll(Pageable pageable);
+    List<ApplicationDTO> findAll(Pageable pageable, Boolean showAll);
     ApplicationDTO create(ApplicationDTO userDto);
     ApplicationDTO update(ApplicationDTO userDto);
     void deleteById(Long id);
+    String register(String name);
 
 }

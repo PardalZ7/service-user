@@ -13,17 +13,17 @@ import java.time.LocalDateTime;
 public abstract class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
 
-    @Column(name = "enable", columnDefinition = "boolean default true")
+    @Column(name = "enable", columnDefinition = "boolean default true", nullable = false)
     protected Boolean enable = true;
 
-    @Column(name = "createdAt", updatable = false)
+    @Column(name = "createdAt", updatable = false, nullable = false)
     @CreationTimestamp
     protected LocalDateTime createdAt;
 
-    @Column(name = "updatedAt")
+    @Column(name = "updatedAt", nullable = false)
     @UpdateTimestamp
     protected LocalDateTime updatedAt;
 

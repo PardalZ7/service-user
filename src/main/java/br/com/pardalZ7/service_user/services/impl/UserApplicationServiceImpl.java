@@ -2,15 +2,15 @@ package br.com.pardalZ7.service_user.services.impl;
 
 import br.com.pardalZ7.service_user.domain.DTO.UserApplicationDTO;
 import br.com.pardalZ7.service_user.domain.entities.UserApplicationEntity;
+import br.com.pardalZ7.service_user.repositories.ApplicationRepository;
 import br.com.pardalZ7.service_user.repositories.UserApplicationRepository;
-import br.com.pardalZ7.service_user.services.exceptions.ObjectNotFoundException;
+import br.com.pardalZ7.service_user.repositories.UserRepository;
 import br.com.pardalZ7.service_user.services.interfaces.UserApplicationServiceInterface;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
@@ -20,45 +20,49 @@ public class UserApplicationServiceImpl implements UserApplicationServiceInterfa
     private UserApplicationRepository repository;
 
     @Autowired
+    private ApplicationRepository applicationRepository;
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private ModelMapper mapper;
 
+    @Autowired
+    private ModelMapper skipNullMapper;
+
     @Override
-    public UserApplicationDTO create(UserApplicationDTO userApplicationDTO) {
-        return mapper.map(repository.save(mapper.map(userApplicationDTO, UserApplicationEntity.class)), UserApplicationDTO.class);
+    public UserApplicationDTO allow(Long userId, Long applicationId) {
+        return this.mapper.map(this.updateOrCreate(true, userId, applicationId), UserApplicationDTO.class);
     }
 
     @Override
-    public UserApplicationDTO findById(Long id) {
-        Optional<UserApplicationEntity> userApplication = repository.findById(id);
-        if (!userApplication.isPresent())
-            throw new ObjectNotFoundException("UserApplication not found");
-        return mapper.map(userApplication.get(), UserApplicationDTO.class);
+    public UserApplicationDTO revoke(Long userId, Long applicationId) {
+        return this.mapper.map(this.updateOrCreate(false, userId, applicationId), UserApplicationDTO.class);
     }
 
     @Override
     public UserApplicationDTO findApplicationPermissionByUser(Long userId, Long applicationId) {
-        Optional<UserApplicationEntity> userApplication = repository.findApplicationPermissionByUser(userId, applicationId);
+        Optional<UserApplicationEntity> userApplication = this.repository.findApplicationPermissionByUser(userId, applicationId);
         if (!userApplication.isPresent())
-            throw new ObjectNotFoundException("UserApplication not found");
-        return mapper.map(userApplication.get(), UserApplicationDTO.class);
+            userApplication = Optional.of(UserApplicationEntity.builder().allowed(false).lastLogin(null).build());
+        return this.mapper.map(userApplication.get(), UserApplicationDTO.class);
     }
 
-    @Override
-    public List<UserApplicationDTO> findAll(Pageable pageable) {
-        return repository.findAll(pageable).stream().map(
-                applicationEntity -> mapper.map(applicationEntity, UserApplicationDTO.class)).toList();
+    private UserApplicationEntity updateOrCreate(boolean allow, Long userId, Long applicationId) {
+        Optional<UserApplicationEntity> userApplication = this.repository.findApplicationPermissionByUser(userId, applicationId);
+        if (!userApplication.isPresent())
+            return this.repository.save(UserApplicationEntity.builder()
+                    .allowed(allow).lastLogin(LocalDateTime.now())
+                    .application(this.applicationRepository.findById(applicationId).get())
+                    .user(this.userRepository.findById(userId).get()).build());
+        else {
+
+            UserApplicationEntity data = userApplication.get();
+            data.setAllowed(allow);
+            return this.repository.save(data);
+
+        }
     }
 
-    @Override
-    public UserApplicationDTO update(UserApplicationDTO userApplicationDTO) {
-        this.findById(userApplicationDTO.getId());
-        return mapper.map(repository.save(mapper.map(userApplicationDTO, UserApplicationEntity.class)), UserApplicationDTO.class);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        UserApplicationDTO userApplication = this.findById(id);
-        userApplication.setEnable(false);
-        repository.save(mapper.map(userApplication, UserApplicationEntity.class));
-    }
 }

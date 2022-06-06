@@ -3,6 +3,8 @@ br\com\pardalZ7\service_user\domain\DTO\ApplicationDTO.class
 br\com\pardalZ7\service_user\domain\DTO\UserDTO.class
 br\com\pardalZ7\service_user\domain\DTO\UserDTO$UserDTOBuilder.class
 br\com\pardalZ7\service_user\domain\entities\UserApplicationEntity$UserApplicationEntityBuilder.class
+br\com\pardalZ7\service_user\resources\exceptions\ResourceExceptionHandler.class
+br\com\pardalZ7\service_user\resources\UserResource.class
 br\com\pardalZ7\service_user\services\impl\ApplicationServiceImpl.class
 br\com\pardalZ7\service_user\repositories\UserRepository.class
 br\com\pardalZ7\service_user\domain\entities\UserEntity$UserEntityBuilder.class
@@ -13,10 +15,11 @@ br\com\pardalZ7\service_user\domain\DTO\UserApplicationDTO.class
 br\com\pardalZ7\service_user\repositories\UserApplicationRepository.class
 br\com\pardalZ7\service_user\domain\DTO\UserApplicationDTO$UserApplicationDTOBuilder.class
 br\com\pardalZ7\service_user\services\interfaces\UserServiceInterface.class
+br\com\pardalZ7\service_user\resources\exceptions\StandardError$StandardErrorBuilder.class
 br\com\pardalZ7\service_user\services\impl\UserApplicationServiceImpl.class
-br\com\pardalZ7\service_user\config\AppConfig.class
 br\com\pardalZ7\service_user\domain\entities\UserEntity.class
 br\com\pardalZ7\service_user\services\exceptions\ObjectNotFoundException.class
+br\com\pardalZ7\service_user\resources\exceptions\StandardError.class
 br\com\pardalZ7\service_user\domain\base\BaseEntity.class
 br\com\pardalZ7\service_user\services\interfaces\ApplicationServiceInterface.class
 br\com\pardalZ7\service_user\domain\DTO\ApplicationDTO$ApplicationDTOBuilder.class

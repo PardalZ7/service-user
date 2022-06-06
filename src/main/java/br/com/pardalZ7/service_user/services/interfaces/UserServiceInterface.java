@@ -9,7 +9,7 @@ public interface UserServiceInterface {
 
     UserDTO findById(Long id);
     UserDTO findByEmail(UserDTO userDTO);
-    List<UserDTO> findAll(Pageable pageable);
+    List<UserDTO> findAll(Pageable pageable, Boolean showAll);
     UserDTO create(UserDTO userDto);
     UserDTO update(UserDTO userDto);
     void deleteById(Long id);

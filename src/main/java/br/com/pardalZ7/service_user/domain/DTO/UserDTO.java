@@ -1,6 +1,5 @@
 package br.com.pardalZ7.service_user.domain.DTO;
 
-import br.com.pardalZ7.service_user.domain.base.BaseEntity;
 import lombok.*;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class UserDTO extends BaseEntity {
+public class UserDTO {
 
     protected Long id;
     protected Boolean enable;

@@ -14,4 +14,14 @@ public class ModelMapperConfig {
 
     }
 
+    @Bean
+    public ModelMapper skipNullMapper() {
+
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setSkipNullEnabled(true);
+
+        return modelMapper;
+
+    }
+
 }

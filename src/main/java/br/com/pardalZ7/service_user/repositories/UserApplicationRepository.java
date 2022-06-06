@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserApplicationRepository extends PagingAndSortingRepository<UserApplicationEntity, Long> {
-    @Query(value = " SELECT * FROM TB_UserApplications userApp WHERE userApp.userId=?1 AND userApp.applicationId=?2 ",
+    @Query(value = " SELECT * FROM tb_user_applications userApp WHERE userApp.user_id=?1 AND userApp.application_id=?2 ",
             nativeQuery = true)
     Optional<UserApplicationEntity> findApplicationPermissionByUser(Long userId, Long applicationId);
 }

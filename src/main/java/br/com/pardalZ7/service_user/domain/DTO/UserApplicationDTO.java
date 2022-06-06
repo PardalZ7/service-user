@@ -1,6 +1,5 @@
 package br.com.pardalZ7.service_user.domain.DTO;
 
-import br.com.pardalZ7.service_user.domain.base.BaseEntity;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -11,13 +10,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode
-public class UserApplicationDTO extends BaseEntity {
+public class UserApplicationDTO {
 
     protected Long id;
-    protected Boolean enable;
-
-    private UserDTO user;
-    private ApplicationDTO application;
     protected LocalDateTime lastLogin;
     protected Boolean allowed;
 

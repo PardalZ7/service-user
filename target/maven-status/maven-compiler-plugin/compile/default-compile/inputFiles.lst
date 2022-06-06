@@ -5,6 +5,8 @@ D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\ser
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\DTO\ApplicationDTO.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\services\exceptions\DataIntegrityViolationException.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\services\interfaces\UserServiceInterface.java
+D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\resources\exceptions\ResourceExceptionHandler.java
+D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\resources\exceptions\StandardError.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\entities\UserEntity.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\services\interfaces\UserApplicationServiceInterface.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\services\impl\UserApplicationServiceImpl.java
@@ -13,7 +15,7 @@ D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\ser
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\repositories\UserRepository.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\services\impl\ApplicationServiceImpl.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\base\BaseEntity.java
-D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\config\AppConfig.java
+D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\resources\UserResource.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\config\ModelMapperConfig.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\domain\entities\UserApplicationEntity.java
 D:\Programacao\Projetos\services\service--user\src\main\java\br\com\pardalZ7\service_user\services\interfaces\ApplicationServiceInterface.java

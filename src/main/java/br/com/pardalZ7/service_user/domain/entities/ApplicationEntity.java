@@ -21,6 +21,7 @@ import java.util.List;
 public class ApplicationEntity extends BaseEntity {
 
     private String name;
+    private String appHashCode;
 
     @LazyCollection(LazyCollectionOption.TRUE)
     @OneToMany(targetEntity=UserApplicationEntity.class, cascade = CascadeType.ALL, orphanRemoval = true)
