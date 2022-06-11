@@ -45,8 +45,6 @@ public class UserServiceImpl implements UserServiceInterface {
     @Override
     public UserDTO findByEmail(UserDTO userDTO) {
         Optional<UserEntity> user = this.repository.findByEmail(userDTO.getEmail());
-        if (user.isPresent() && !user.get().getId().equals(userDTO.getId()))
-            throw new DataIntegrityViolationException("Email already registered");
         return this.mapper.map(user.get(), UserDTO.class);
     }
 
@@ -68,7 +66,10 @@ public class UserServiceImpl implements UserServiceInterface {
         if (!checkEmail(userDTO.getId(), userDTO.getEmail()))
             throw new DataIntegrityViolationException("Email already registered");
         this.skipNullMapper.map(userDTO, userOnDB);
-        return this.mapper.map(this.repository.save(this.mapper.map(userOnDB, UserEntity.class)), UserDTO.class);
+
+        return this.mapper.map(this.repository.save(this.mapper.map(userOnDB, UserEntity.class)),
+                UserDTO.class);
+
     }
 
     @Override

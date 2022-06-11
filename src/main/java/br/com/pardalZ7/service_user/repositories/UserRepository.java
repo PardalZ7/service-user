@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
+
     Optional<UserEntity> findByEmail(String email);
 
     @Query(value = " SELECT * FROM TB_Users users WHERE users.enable=true ",

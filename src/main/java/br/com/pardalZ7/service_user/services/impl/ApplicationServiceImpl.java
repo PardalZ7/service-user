@@ -71,7 +71,7 @@ public class ApplicationServiceImpl implements ApplicationServiceInterface {
     public String register(String name) {
 
         ApplicationEntity application = ApplicationEntity.builder().name(name)
-                .appHashCode(generateAppHash(56)).build();
+                .appHashCode(generateAppHash(56)).enable(true).build();
 
         this.repository.save(application);
         return  application.getAppHashCode();

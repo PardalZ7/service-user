@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EqualsAndHashCode
 @Getter @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public abstract class BaseEntity {
 
     @Id

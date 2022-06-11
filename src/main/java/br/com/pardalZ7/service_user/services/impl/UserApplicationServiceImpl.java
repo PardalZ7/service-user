@@ -55,7 +55,7 @@ public class UserApplicationServiceImpl implements UserApplicationServiceInterfa
             return this.repository.save(UserApplicationEntity.builder()
                     .allowed(allow).lastLogin(LocalDateTime.now())
                     .application(this.applicationRepository.findById(applicationId).get())
-                    .user(this.userRepository.findById(userId).get()).build());
+                    .user(this.userRepository.findById(userId).get()).enable(true).build());
         else {
 
             UserApplicationEntity data = userApplication.get();

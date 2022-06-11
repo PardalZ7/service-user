@@ -8,12 +8,9 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity(name = "TB_UserApplications")
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@Getter @Setter
 @EqualsAndHashCode
+@NoArgsConstructor
 public class UserApplicationEntity extends BaseEntity {
 
     @ManyToOne
@@ -30,5 +27,14 @@ public class UserApplicationEntity extends BaseEntity {
     @Column(name = "allowed", columnDefinition = "boolean default false")
     protected Boolean allowed;
 
-
+    @Builder
+    public UserApplicationEntity(Long id, Boolean enable, LocalDateTime createdAt, LocalDateTime updatedAt,
+                                 UserEntity user, ApplicationEntity application, LocalDateTime lastLogin,
+                                 Boolean allowed) {
+        super(id, enable, createdAt, updatedAt);
+        this.user = user;
+        this.application = application;
+        this.lastLogin = lastLogin;
+        this.allowed = allowed;
+    }
 }
