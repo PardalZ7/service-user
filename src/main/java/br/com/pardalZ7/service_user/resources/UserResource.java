@@ -2,10 +2,8 @@ package br.com.pardalZ7.service_user.resources;
 
 import br.com.pardalZ7.service_user.domain.DTO.UserDTO;
 import br.com.pardalZ7.service_user.services.impl.UserServiceImpl;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,15 +18,13 @@ import java.util.List;
 public class UserResource {
 
     public static final String ID = "/{id}";
-    @Autowired
-    private ModelMapper mapper;
 
     @Autowired
     private UserServiceImpl service;
 
     @GetMapping(value = ID, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserDTO> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(mapper.map(service.findById(id), UserDTO.class));
+        return ResponseEntity.ok().body(service.findById(id));
     }
 
     @GetMapping()
@@ -46,10 +42,7 @@ public class UserResource {
         if ((pageSize == null) || (pageSize < 1))
             pageSize = 100;
 
-        Pageable pagination = PageRequest.of(page, pageSize);
-
-        List<UserDTO> usersDto = service.findAll(pagination, showAll);
-        return ResponseEntity.ok().body(usersDto);
+        return ResponseEntity.ok().body(service.findAll(PageRequest.of(page, pageSize), showAll));
     }
 
     @PostMapping
@@ -63,7 +56,7 @@ public class UserResource {
     @PutMapping(value = ID)
     public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody @NotNull UserDTO userBody){
         userBody.setId(id);
-        return ResponseEntity.ok().body(mapper.map(service.update(userBody), UserDTO.class));
+        return ResponseEntity.ok().body(service.update(userBody));
     }
 
     @DeleteMapping(value = ID)

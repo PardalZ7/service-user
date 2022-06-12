@@ -2,7 +2,6 @@ package br.com.pardalZ7.service_user.resources;
 
 import br.com.pardalZ7.service_user.domain.DTO.UserApplicationDTO;
 import br.com.pardalZ7.service_user.services.impl.UserApplicationServiceImpl;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +14,6 @@ public class UserApplicationResource {
     public static final String ALLOW = "/allow";
     public static final String REVOKE = "/revoke";
     public static final String VIEW = "/viewPermission";
-
-    @Autowired
-    private ModelMapper mapper;
 
     @Autowired
     private UserApplicationServiceImpl service;

@@ -2,10 +2,8 @@ package br.com.pardalZ7.service_user.resources;
 
 import br.com.pardalZ7.service_user.domain.DTO.ApplicationDTO;
 import br.com.pardalZ7.service_user.services.impl.ApplicationServiceImpl;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,14 +21,11 @@ public class ApplicationResource {
     public static final String NAME = "/register/{name}";
 
     @Autowired
-    private ModelMapper mapper;
-
-    @Autowired
     private ApplicationServiceImpl service;
 
     @GetMapping(value = ID, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ApplicationDTO> findById(@PathVariable Long id) {
-        return ResponseEntity.ok().body(mapper.map(service.findById(id), ApplicationDTO.class));
+        return ResponseEntity.ok().body(service.findById(id));
     }
 
     @GetMapping()
@@ -48,10 +43,7 @@ public class ApplicationResource {
         if ((pageSize == null) || (pageSize < 1))
             pageSize = 100;
 
-        Pageable pagination = PageRequest.of(page, pageSize);
-
-        List<ApplicationDTO> applicationDto = service.findAll(pagination, showAll);
-        return ResponseEntity.ok().body(applicationDto);
+        return ResponseEntity.ok().body(service.findAll(PageRequest.of(page, pageSize), showAll));
     }
 
     @PostMapping(value = NAME)
@@ -65,7 +57,7 @@ public class ApplicationResource {
     @PutMapping(value = ID)
     public ResponseEntity<ApplicationDTO> update(@PathVariable Long id, @RequestBody @NotNull ApplicationDTO applicationBody){
         applicationBody.setId(id);
-        return ResponseEntity.ok().body(mapper.map(service.update(applicationBody), ApplicationDTO.class));
+        return ResponseEntity.ok().body(service.update(applicationBody));
     }
 
     @DeleteMapping(value = ID)
