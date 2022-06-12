@@ -1,6 +1,7 @@
 package br.com.pardalZ7.service_user.domain.DTO;
 
 import br.com.pardalZ7.service_user.domain.base.BaseDTO;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public class UserDTO extends BaseDTO {
 
     private String name;
     private String email;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String pass;
     private List<UserApplicationDTO> userApplications;
 
