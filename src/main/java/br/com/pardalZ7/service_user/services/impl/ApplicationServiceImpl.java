@@ -29,6 +29,10 @@ public class ApplicationServiceImpl implements ApplicationServiceInterface {
 
     @Override
     public ApplicationDTO create(ApplicationDTO applicationDTO) {
+
+        if (applicationDTO.getEnable() == null)
+            applicationDTO.setEnable(true);
+
         return this.mapper.map(this.repository.save(
                 this.mapper.map(applicationDTO, ApplicationEntity.class)), ApplicationDTO.class);
     }

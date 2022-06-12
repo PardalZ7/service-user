@@ -29,6 +29,10 @@ public class UserServiceImpl implements UserServiceInterface {
 
     @Override
     public UserDTO create(UserDTO userDTO) {
+
+        if (userDTO.getEnable() == null)
+            userDTO.setEnable(true);
+
         if (!checkEmail(userDTO.getId(), userDTO.getEmail()))
             throw new DataIntegrityViolationException("Email already registered");
         return this.mapper.map(this.repository.save(this.mapper.map(userDTO, UserEntity.class)), UserDTO.class);

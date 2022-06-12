@@ -16,7 +16,6 @@ public class UserDTO extends BaseDTO {
     private String email;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String pass;
-    private List<UserApplicationDTO> userApplications;
 
     @Builder
     public UserDTO(Long id, Boolean enable, String name, String email, String pass,
@@ -25,6 +24,5 @@ public class UserDTO extends BaseDTO {
         this.name = name;
         this.email = email;
         this.pass = pass;
-        this.userApplications = userApplications;
     }
 }
